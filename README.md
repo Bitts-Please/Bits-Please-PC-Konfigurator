@@ -1,1 +1,1 @@
-# Bits-Please---PC-Konfigurator
+# Bits-Please-PC-Konfigurator
