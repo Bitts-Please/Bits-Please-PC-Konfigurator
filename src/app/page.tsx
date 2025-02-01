@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Button from "../app/components/Buttons";
 import Head from "next/head";
-import Script from "next/script";
+
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
