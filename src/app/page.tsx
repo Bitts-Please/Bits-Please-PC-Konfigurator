@@ -4,12 +4,13 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Button from "../app/components/Buttons";
 import Head from "next/head";
+import Script from "next/script";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Stelle sicher, dass der <model-viewer>-Script geladen wird
+    // Stelle sicher, dass das <model-viewer>-Script geladen wird
     const script = document.createElement("script");
     script.type = "module";
     script.src = "https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js";
@@ -25,14 +26,16 @@ export default function Home() {
         <title>PC-Konfigurator</title>
       </Head>
 
+      
       {isLoading ? (
+        // Ladebildschirm mit Neon-/Sci-Fi-Hintergrund
         <div
           style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             minHeight: "100vh",
-            background: "linear-gradient(rgb(239, 62, 165) 0%, rgb(31, 116, 159) 100%)",
+            background: "radial-gradient(circle, rgba(226, 43, 217, 0.88),rgb(7, 7, 100))",
             color: "white",
             fontSize: "1.5rem",
             textAlign: "center",
@@ -41,10 +44,12 @@ export default function Home() {
           Lade Inhalte...
         </div>
       ) : (
+        // Hauptbereich nach dem Laden
         <main
           style={{
             minHeight: "100vh",
-            background: "linear-gradient(rgb(239, 62, 165) 0%, rgb(31, 116, 159) 100%)",
+            background:
+              "radial-gradient(circle,rgba(226, 43, 217, 0.88), rgb(7, 7, 100))",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -72,16 +77,16 @@ export default function Home() {
           {/* Überschriften */}
           <div>
             <h1>Willkommen zu unserem Handmade PC-Konfigurator.</h1>
-            <h2>Bitte wähle zunächst deinen präferierten Modus aus.</h2>
+            <h2>Bitte wähle zunächst deinen präferierten Modus aus um zu starten.</h2>
           </div>
 
           {/* Buttons */}
           <div
             style={{
               display: "flex",
-              justifyContent: "center", // Zentriert die Buttons horizontal
-              alignItems: "center", // Vertikale Zentrierung (sinnvoll falls Container-Höhe angepasst wird)
-              gap: "20px", // Abstand zwischen Buttons
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "20px",
               marginTop: "20px",
             }}
           >
@@ -103,14 +108,13 @@ export default function Home() {
               src="/models/gaming_desktop_pc.glb"
               alt="3D-Modell eines PC-Towers"
               auto-rotate
-              auto-rotate-delay="0"
               camera-orbit="150deg 75deg 3m"
-              rotation-per-second="5"
-              interaction-policy="allow-when-focused"
+              animation-name="auto"
+              disable-tap
               style={{
-                width: "750px",
-                height: "350px",
-                borderRadius: "10px",
+                width: 750,
+                height: 350,
+                borderRadius: 10,
               }}
             ></model-viewer>
           </div>
