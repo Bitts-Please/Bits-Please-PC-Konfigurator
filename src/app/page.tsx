@@ -104,7 +104,7 @@ export default function Home() {
               marginTop: "20px",
             }}
           >
-            <model-viewer
+            {/* <model-viewer
               src="/models/gaming_desktop_pc.glb"
               alt="3D-Modell eines PC-Towers"
               auto-rotate
@@ -116,7 +116,7 @@ export default function Home() {
                 height: 350,
                 borderRadius: 10,
               }}
-            ></model-viewer>
+            ></model-viewer> */}
           </div>
         </main>
       )}
